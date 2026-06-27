@@ -276,28 +276,30 @@ function ProjectCard({ project, index }) {
         target="_blank"
         rel="noreferrer"
         aria-label={`${project.name} 프로젝트 보기`}
-        className="group grid min-h-44 grid-cols-[36px_1fr_36px] items-center gap-3 border-b border-white/15 py-7 transition hover:bg-white/[0.04] md:grid-cols-[60px_1fr_minmax(260px,0.8fr)_44px] md:gap-8 md:hover:px-5"
+        className="group grid min-h-44 grid-cols-[36px_1fr_36px] items-center gap-3 border-b border-line py-7 transition hover:bg-ink/[0.035] md:grid-cols-[60px_1fr_minmax(260px,0.8fr)_44px] md:gap-8 md:hover:px-5 dark:border-white/15 dark:hover:bg-white/[0.04]"
       >
-        <span className="self-start pt-1 text-xs text-[#f0a88f]">
+        <span className="self-start pt-1 text-xs text-accent">
           0{index + 1}
         </span>
         <div>
-          <span className="text-[10px] text-[#96a49b]">{project.period}</span>
+          <span className="text-[10px] text-muted dark:text-[#96a49b]">
+            {project.period}
+          </span>
           <h3 className="mt-3 text-[clamp(1.6rem,3vw,2.7rem)] font-medium tracking-[-0.05em]">
             {project.name}
           </h3>
-          <span className="mt-3 block text-[10px] text-[#96a49b]">
+          <span className="mt-3 block text-[10px] text-muted dark:text-[#96a49b]">
             {project.role}
           </span>
         </div>
         <div className="col-start-2 md:col-start-auto">
-          <p className="font-korean text-xs leading-6 text-[#aeb9b2] break-keep md:text-sm">
+          <p className="font-korean text-xs leading-6 text-muted break-keep md:text-sm dark:text-[#aeb9b2]">
             {project.description}
           </p>
-          <p className="font-korean mt-3 text-[11px] text-[#f5f1e7] before:mr-2 before:text-accent before:content-['✓']">
+          <p className="font-korean mt-3 text-[11px] text-ink before:mr-2 before:text-accent before:content-['✓'] dark:text-[#f5f1e7]">
             {project.result}
           </p>
-          <div className="mt-4 flex flex-wrap gap-x-2 text-[10px] text-[#ced5d0]">
+          <div className="mt-4 flex flex-wrap gap-x-2 text-[10px] text-muted dark:text-[#ced5d0]">
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -308,7 +310,7 @@ function ProjectCard({ project, index }) {
             ))}
           </div>
         </div>
-        <span className="col-start-3 row-span-2 row-start-1 grid size-9 place-items-center self-center rounded-full border border-white/25 transition group-hover:rotate-45 group-hover:bg-accent md:col-start-4 md:size-11">
+        <span className="col-start-3 row-span-2 row-start-1 grid size-9 place-items-center self-center rounded-full border border-line transition group-hover:rotate-45 group-hover:bg-accent group-hover:text-white md:col-start-4 md:size-11 dark:border-white/25">
           <Arrow />
         </span>
       </a>
@@ -318,7 +320,10 @@ function ProjectCard({ project, index }) {
 
 function Projects() {
   return (
-    <section id="projects" className={`${sectionPadding} bg-deep text-[#f5f1e7]`}>
+    <section
+      id="projects"
+      className={`${sectionPadding} bg-surface text-ink transition-colors duration-300 dark:bg-deep dark:text-[#f5f1e7]`}
+    >
       <div className={shell}>
         <SectionHeading index="03" light>
           SELECTED PROJECTS
@@ -327,11 +332,11 @@ function Projects() {
           <h2 className="font-korean text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.2] font-semibold tracking-[-0.07em]">
             문제를 해결한 기록.
           </h2>
-          <p className="font-korean max-w-[300px] text-xs leading-6 text-[#a9b5ad] break-keep">
+          <p className="font-korean max-w-[300px] text-xs leading-6 text-muted break-keep dark:text-[#a9b5ad]">
             역할과 구현보다, 어떤 문제를 어떻게 검증했는지에 집중했습니다.
           </p>
         </Reveal>
-        <div className="border-t border-white/15">
+        <div className="border-t border-line dark:border-white/15">
           {portfolio.projects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
@@ -341,7 +346,7 @@ function Projects() {
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="font-korean mt-10 inline-flex gap-3 border-b border-white/25 pb-1 text-xs"
+            className="font-korean mt-10 inline-flex gap-3 border-b border-line pb-1 text-xs dark:border-white/25"
           >
             GitHub에서 모든 프로젝트 보기 <Arrow />
           </a>
@@ -395,17 +400,37 @@ function Contact() {
 }
 
 export default function App() {
-  const [dark, setDark] = useState(() => {
-    const saved = localStorage.getItem("portfolio-theme");
-    return saved
-      ? saved === "dark"
-      : window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
+  const themeStorageKey = "portfolio-theme-v2";
+  const systemThemeQuery = "(prefers-color-scheme: dark)";
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem(themeStorageKey) ?? "system",
+  );
+  const [systemDark, setSystemDark] = useState(
+    () => window.matchMedia?.(systemThemeQuery).matches ?? false,
+  );
+  const dark = theme === "dark" || (theme === "system" && systemDark);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(systemThemeQuery);
+    const handleSystemThemeChange = (event) => setSystemDark(event.matches);
+
+    mediaQuery.addEventListener("change", handleSystemThemeChange);
+    return () =>
+      mediaQuery.removeEventListener("change", handleSystemThemeChange);
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("portfolio-theme", dark ? "dark" : "light");
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", dark ? "#121714" : "#f3f0e8");
   }, [dark]);
+
+  const handleThemeToggle = () => {
+    const nextTheme = dark ? "light" : "dark";
+    setTheme(nextTheme);
+    localStorage.setItem(themeStorageKey, nextTheme);
+  };
 
   return (
     <div className="min-h-screen bg-bg text-ink transition-colors duration-300">
@@ -418,7 +443,7 @@ export default function App() {
       <Header
         name={portfolio.name}
         dark={dark}
-        onThemeToggle={() => setDark((value) => !value)}
+        onThemeToggle={handleThemeToggle}
       />
       <main id="main">
         <Hero />
