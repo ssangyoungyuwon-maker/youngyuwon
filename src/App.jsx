@@ -1,0 +1,381 @@
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Reveal from "./components/Reveal";
+import SectionHeading from "./components/SectionHeading";
+import { portfolio } from "./data/portfolio";
+
+const shell = "mx-auto w-full max-w-[1384px] px-5 md:px-10 xl:px-[4.5rem]";
+const sectionPadding = "py-24 md:py-36 xl:py-40";
+const githubUrl = `https://github.com/${portfolio.githubUsername}`;
+
+function Arrow({ down = false }) {
+  return <span aria-hidden="true">{down ? "↘" : "↗"}</span>;
+}
+
+function Hero() {
+  return (
+    <>
+      <section
+        id="top"
+        className={`${shell} grid min-h-[calc(100svh-5rem)] items-center gap-14 pt-14 pb-24 md:min-h-[calc(100svh-6rem)] md:pt-16 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20`}
+      >
+        <Reveal className="relative z-10">
+          <p className="mb-8 flex items-center text-xs font-semibold tracking-[0.14em] text-muted before:mr-3 before:h-px before:w-10 before:bg-accent before:content-['']">
+            {portfolio.eyebrow}
+          </p>
+          <h1 className="font-korean m-0 max-w-[820px] text-[clamp(2.8rem,7vw,6.5rem)] leading-[1.06] font-semibold tracking-[-0.08em] break-keep">
+            <span className="block">{portfolio.headline[0]}</span>
+            <span className="block text-accent">{portfolio.headline[1]}</span>
+          </h1>
+          <p className="font-korean mt-9 max-w-[620px] text-[15px] leading-8 text-muted break-keep md:text-[18px]">
+            {portfolio.introduction}
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-5 md:gap-8">
+            <a
+              href="#projects"
+              className="font-korean inline-flex min-h-14 items-center justify-center gap-8 rounded-full bg-ink px-6 text-sm font-semibold text-bg transition hover:-translate-y-1"
+            >
+              프로젝트 보기 <Arrow down />
+            </a>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="border-b border-line pb-1 text-sm"
+            >
+              GitHub <Arrow />
+            </a>
+            <a
+              href={portfolio.blogUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="border-b border-line pb-1 text-sm"
+            >
+              Tech Blog <Arrow />
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal
+          delay={120}
+          className="relative mx-auto grid min-h-[380px] w-full max-w-[500px] place-items-center md:min-h-[490px]"
+        >
+          <div className="orbit orbit-outer" />
+          <div className="orbit orbit-inner" />
+          <div className="visual-card">
+            <span className="text-[10px] tracking-[0.18em] text-[#b9c5bd]">
+              CURRENTLY
+            </span>
+            <strong className="mt-14 text-[clamp(1.8rem,3vw,2.4rem)] leading-[1.05] font-medium tracking-[-0.06em]">
+              Building
+              <br />
+              reliable
+              <br />
+              systems.
+            </strong>
+            <span className="absolute right-5 bottom-1 z-10 font-serif text-8xl text-accent italic">
+              Y
+            </span>
+          </div>
+          <span className="floating-note top-[20%] left-0 -rotate-6">
+            Domain-driven
+          </span>
+          <span className="floating-note right-0 bottom-[20%] rotate-6">
+            Reliable
+          </span>
+        </Reveal>
+      </section>
+
+      <div className="overflow-hidden border-y border-line py-4">
+        <div className="marquee-track flex w-max items-center gap-9 text-[11px] tracking-[0.17em] text-muted">
+          {[0, 1].map((group) => (
+            <div key={group} className="flex items-center gap-9">
+              <span>BACKEND DEVELOPMENT</span>
+              <i>✦</i>
+              <span>DATA INTEGRITY</span>
+              <i>✦</i>
+              <span>DOMAIN UNDERSTANDING</span>
+              <i>✦</i>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className={`${shell} ${sectionPadding}`}>
+      <SectionHeading index="01">ABOUT ME</SectionHeading>
+      <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
+        <Reveal>
+          <h2 className="font-korean text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.2] font-semibold tracking-[-0.07em]">
+            근거로 판단하고
+            <br />
+            <em>안정적으로</em> 만듭니다.
+          </h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <p className="font-korean text-[16px] leading-8 text-muted break-keep md:text-[17px]">
+            {portfolio.about}
+          </p>
+          <div className="mt-10 flex flex-wrap gap-2.5">
+            {portfolio.skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-line px-4 py-2.5 text-xs"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="mt-24 grid border-t border-line md:mt-32 md:grid-cols-3">
+        {portfolio.values.map((value, index) => (
+          <Reveal
+            key={value.title}
+            delay={index * 80}
+            className="border-b border-line py-7 md:border-b-0 md:px-8 md:py-8 md:first:pl-0 md:[&:not(:first-child)]:border-l md:[&:not(:first-child)]:border-line"
+          >
+            <span className="text-xs text-accent">{value.number}</span>
+            <h3 className="mt-8 mb-4 text-xl font-medium">{value.title}</h3>
+            <p className="font-korean max-w-[320px] text-sm leading-7 text-muted break-keep">
+              {value.description}
+            </p>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Journey() {
+  return (
+    <section
+      id="journey"
+      className={`${shell} ${sectionPadding} border-t border-line`}
+    >
+      <SectionHeading index="02">EXPERIENCE &amp; EDUCATION</SectionHeading>
+      <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-28">
+        <Reveal className="self-start lg:sticky lg:top-12">
+          <p className="mb-6 text-[11px] font-semibold tracking-[0.14em] text-accent">
+            CAREER SHIFT
+          </p>
+          <h2 className="font-korean text-[clamp(2.4rem,4.5vw,4.5rem)] leading-[1.2] font-semibold tracking-[-0.07em]">
+            도메인 경험을
+            <br />
+            개발의 <em>맥락</em>으로.
+          </h2>
+          <p className="font-korean mt-8 max-w-[390px] text-sm leading-7 text-muted break-keep">
+            규제 데이터의 정확성을 책임지던 실무자에서, 데이터와 로직을 직접
+            설계하는 개발자로 전환하고 있습니다.
+          </p>
+        </Reveal>
+
+        <div className="relative before:absolute before:top-2 before:bottom-0 before:left-[5px] before:w-px before:bg-line">
+          {portfolio.experiences.map((experience, index) => (
+            <Reveal
+              key={`${experience.period}-${experience.title}`}
+              delay={index * 60}
+              className="relative grid grid-cols-[1rem_1fr] gap-x-4 pb-14 md:grid-cols-[1rem_130px_1fr] md:gap-x-6"
+            >
+              <span className="z-10 mt-1 size-3 rounded-full border-2 border-bg bg-accent ring-1 ring-accent" />
+              <p className="col-start-2 text-xs leading-5 text-muted md:col-start-auto">
+                {experience.period}
+              </p>
+              <div className="col-start-2 mt-5 md:col-start-auto md:mt-0">
+                <span className="text-[10px] font-semibold tracking-[0.12em] text-accent uppercase">
+                  {experience.type}
+                </span>
+                <h3 className="font-korean mt-3 text-lg font-semibold tracking-[-0.04em]">
+                  {experience.title}
+                </h3>
+                <p className="font-korean mt-2 text-[13px]">
+                  {experience.organization}
+                </p>
+                <p className="font-korean mt-4 text-[13px] leading-6 text-muted break-keep">
+                  {experience.description}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({ project, index }) {
+  return (
+    <Reveal>
+      <a
+        href={githubUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${project.name} 프로젝트 보기`}
+        className="group grid min-h-44 grid-cols-[36px_1fr_36px] items-center gap-3 border-b border-white/15 py-7 transition hover:bg-white/[0.04] md:grid-cols-[60px_1fr_minmax(260px,0.8fr)_44px] md:gap-8 md:hover:px-5"
+      >
+        <span className="self-start pt-1 text-xs text-[#f0a88f]">
+          0{index + 1}
+        </span>
+        <div>
+          <span className="text-[10px] text-[#96a49b]">{project.period}</span>
+          <h3 className="mt-3 text-[clamp(1.6rem,3vw,2.7rem)] font-medium tracking-[-0.05em]">
+            {project.name}
+          </h3>
+          <span className="mt-3 block text-[10px] text-[#96a49b]">
+            {project.role}
+          </span>
+        </div>
+        <div className="col-start-2 md:col-start-auto">
+          <p className="font-korean text-xs leading-6 text-[#aeb9b2] break-keep md:text-sm">
+            {project.description}
+          </p>
+          <p className="font-korean mt-3 text-[11px] text-[#f5f1e7] before:mr-2 before:text-accent before:content-['✓']">
+            {project.result}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-x-2 text-[10px] text-[#ced5d0]">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="before:mr-2 before:text-accent before:content-['•'] first:before:hidden"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        <span className="col-start-3 row-span-2 row-start-1 grid size-9 place-items-center self-center rounded-full border border-white/25 transition group-hover:rotate-45 group-hover:bg-accent md:col-start-4 md:size-11">
+          <Arrow />
+        </span>
+      </a>
+    </Reveal>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" className={`${sectionPadding} bg-deep text-[#f5f1e7]`}>
+      <div className={shell}>
+        <SectionHeading index="03" light>
+          SELECTED PROJECTS
+        </SectionHeading>
+        <Reveal className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <h2 className="font-korean text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.2] font-semibold tracking-[-0.07em]">
+            문제를 해결한 기록.
+          </h2>
+          <p className="font-korean max-w-[300px] text-xs leading-6 text-[#a9b5ad] break-keep">
+            역할과 구현보다, 어떤 문제를 어떻게 검증했는지에 집중했습니다.
+          </p>
+        </Reveal>
+        <div className="border-t border-white/15">
+          {portfolio.projects.map((project, index) => (
+            <ProjectCard key={project.name} project={project} index={index} />
+          ))}
+        </div>
+        <Reveal>
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="font-korean mt-10 inline-flex gap-3 border-b border-white/25 pb-1 text-xs"
+          >
+            GitHub에서 모든 프로젝트 보기 <Arrow />
+          </a>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className={`${shell} ${sectionPadding}`}>
+      <SectionHeading index="04">GET IN TOUCH</SectionHeading>
+      <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-28">
+        <Reveal>
+          <p className="font-korean mb-6 text-sm text-muted">
+            함께 해결할 문제가 있나요?
+          </p>
+          <h2 className="font-korean text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.2] font-semibold tracking-[-0.07em]">
+            백엔드의 다음을
+            <br />
+            <em>함께 만들어요.</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={100} className="flex flex-col justify-end">
+          <p className="font-korean mb-10 max-w-[420px] text-[15px] leading-8 text-muted break-keep">
+            {portfolio.availability}
+          </p>
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center justify-between border-y border-line py-5 text-[clamp(1.05rem,2vw,1.4rem)]"
+          >
+            GitHub에서 연락하기
+            <span className="grid size-11 place-items-center rounded-full bg-accent text-white transition group-hover:rotate-45">
+              <Arrow />
+            </span>
+          </a>
+          <div className="mt-6 flex flex-col justify-between gap-3 text-xs text-muted sm:flex-row">
+            <span>{portfolio.location}</span>
+            <span className="flex items-center gap-2">
+              <i className="size-2 rounded-full bg-[#38a269] shadow-[0_0_0_4px_rgba(56,162,105,0.12)]" />
+              Available for work
+            </span>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export default function App() {
+  const [dark, setDark] = useState(() => {
+    const saved = localStorage.getItem("portfolio-theme");
+    return saved
+      ? saved === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("portfolio-theme", dark ? "dark" : "light");
+  }, [dark]);
+
+  return (
+    <div className="min-h-screen bg-bg text-ink transition-colors duration-300">
+      <a
+        href="#main"
+        className="fixed top-3 left-3 z-50 -translate-y-24 rounded-full bg-ink px-4 py-3 text-xs text-bg transition focus:translate-y-0"
+      >
+        본문으로 바로가기
+      </a>
+      <Header
+        name={portfolio.name}
+        dark={dark}
+        onThemeToggle={() => setDark((value) => !value)}
+      />
+      <main id="main">
+        <Hero />
+        <About />
+        <Journey />
+        <Projects />
+        <Contact />
+      </main>
+      <footer
+        className={`${shell} flex flex-col justify-between gap-3 border-t border-line py-8 text-[11px] text-muted sm:flex-row`}
+      >
+        <p>
+          © {new Date().getFullYear()} {portfolio.name}
+        </p>
+        <p>Designed &amp; built with React.</p>
+        <a href="#top">Back to top ↑</a>
+      </footer>
+    </div>
+  );
+}

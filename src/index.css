@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-deep: var(--deep);
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f3f0e8;
+  --surface: #e7e2d6;
+  --ink: #18201c;
+  --muted: #676d68;
+  --line: rgba(24, 32, 28, 0.18);
+  --accent: #e85d35;
+  --deep: #17271f;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --bg: #121714;
+  --surface: #1d251f;
+  --ink: #f1ede3;
+  --muted: #a6ada7;
+  --line: rgba(241, 237, 227, 0.17);
+  --accent: #f07851;
+  --deep: #0c100e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "DM Sans", "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-korean {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+em {
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.visual-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: min(64vw, 300px);
+  aspect-ratio: 0.76;
+  padding: 1.7rem;
+  overflow: hidden;
+  border-radius: 45% 45% 1.4rem 1.4rem;
+  background: var(--deep);
+  color: #f5f1e7;
+  box-shadow: 0 2rem 5rem rgba(18, 27, 22, 0.19);
+  transform: rotate(4deg);
+}
+
+.visual-card::after {
+  position: absolute;
+  right: -35%;
+  bottom: -17%;
+  width: 110%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  content: "";
+  box-shadow:
+    0 0 0 35px rgba(255, 255, 255, 0.035),
+    0 0 0 70px rgba(255, 255, 255, 0.025);
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.orbit-outer {
+  width: min(92vw, 100%);
+  aspect-ratio: 1;
+  animation: spin 26s linear infinite;
+}
+
+.orbit-outer::after {
+  position: absolute;
+  top: 17%;
+  right: 4%;
+  width: 0.75rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+.orbit-inner {
+  width: 70%;
+  aspect-ratio: 1;
+  border-style: dashed;
+  animation: spin 18s linear infinite reverse;
+}
+
+.floating-note {
+  position: absolute;
+  z-index: 3;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  box-shadow: 0 0.8rem 2rem rgba(18, 27, 22, 0.08);
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track i {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
