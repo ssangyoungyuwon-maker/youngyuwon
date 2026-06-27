@@ -1,6 +1,6 @@
 # 서유원 포트폴리오
 
-React, Vite, JavaScript, Tailwind CSS로 만든 백엔드 개발자 포트폴리오입니다.
+React, Vite, JavaScript, Tailwind CSS로 만든 백엔드에 강점을 둔 풀스택 개발자 포트폴리오입니다.
 
 ## 기술 구성
 

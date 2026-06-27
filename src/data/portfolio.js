@@ -2,17 +2,17 @@ import tripanPortfolio from "../assets/tripan-portfolio.pdf";
 
 export const portfolio = {
   name: "서유원",
-  role: "Backend Developer",
+  role: "Full-Stack Developer · Backend Focus",
   githubUsername: "ssangyoungyuwon-maker",
   blogUrl: "https://wonniedev.tistory.com/",
   eyebrow: "도메인을 이해하고 안정적인 시스템을 만듭니다.",
   headline: ["데이터의 흐름을 읽고,", "안정적인 로직을 설계합니다."],
   introduction:
-    "화학 규제 데이터와 고객의 문제를 다뤄온 경험을 바탕으로, 비즈니스 흐름을 정확한 코드로 구현하는 Java 백엔드 개발자 서유원입니다.",
+    "화학 규제 데이터와 고객의 문제를 다뤄온 경험을 바탕으로, 화면부터 서버까지 비즈니스 흐름을 구현하고 Java·Spring 백엔드의 안정성에 집중하는 풀스택 개발자 서유원입니다.",
   about:
-    "화학물질 규제 부서에서 3년간 30만 건 이상의 물질·규제 데이터를 관리하고, 고객 VOC를 개발팀과 함께 해결했습니다. 현상보다 원인을 구조적으로 파악하는 일에 매력을 느껴 개발자로 전환했으며, 현재 Java와 Spring Boot를 중심으로 데이터 정합성과 안정적인 운영을 고민하고 있습니다.",
+    "화학물질 규제 부서에서 3년간 30만 건 이상의 물질·규제 데이터를 관리하고, 고객 VOC를 개발팀과 함께 해결했습니다. 현상보다 원인을 구조적으로 파악하는 일에 매력을 느껴 개발자로 전환했으며, 현재 Java와 Spring Boot를 중심으로 데이터 정합성과 안정적인 운영을 고민하면서 제품의 전체 흐름을 이해하는 풀스택 개발자로 성장하고 있습니다.",
   availability:
-    "도메인을 빠르게 이해하고 운영까지 책임지는 Java 백엔드 개발자로 성장할 기회를 찾고 있습니다.",
+    "도메인을 빠르게 이해하고, 기록과 소통으로 팀의 맥락을 이어가며 오래 함께 성장하는 개발자가 되고 싶습니다.",
   location: "Seoul, Korea",
   skillGroups: [
     {

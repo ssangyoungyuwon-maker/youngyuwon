@@ -443,12 +443,12 @@ function Contact() {
       <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-28">
         <Reveal>
           <p className="font-korean mb-6 text-sm text-muted">
-            함께 해결할 문제가 있나요?
+            좋은 제품은 긴 호흡의 협업에서 만들어진다고 믿습니다.
           </p>
           <h2 className="font-korean text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.2] font-semibold tracking-[-0.07em]">
-            백엔드의 다음을
+            함께 일할수록
             <br />
-            <em>함께 만들어요.</em>
+            <em>믿음이 가는 개발자.</em>
           </h2>
         </Reveal>
         <Reveal delay={100} className="flex flex-col justify-end">
