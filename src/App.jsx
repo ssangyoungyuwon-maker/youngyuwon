@@ -360,9 +360,16 @@ function ProjectCard({ project, index }) {
           <p className="font-korean text-xs leading-6 text-muted break-keep md:text-sm dark:text-[#aeb9b2]">
             {project.description}
           </p>
-          <p className="font-korean mt-3 text-[11px] text-ink before:mr-2 before:text-accent before:content-['✓'] dark:text-[#f5f1e7]">
-            {project.result}
-          </p>
+          <ul className="font-korean mt-3 space-y-1.5 text-[11px] text-ink dark:text-[#f5f1e7]">
+            {(project.results ?? [project.result]).map((result) => (
+              <li
+                key={result}
+                className="flex gap-2 before:shrink-0 before:text-accent before:content-['✓']"
+              >
+                {result}
+              </li>
+            ))}
+          </ul>
           <div className="mt-4 flex flex-wrap gap-x-2 text-[10px] text-muted dark:text-[#ced5d0]">
             {project.tags.map((tag) => (
               <span
