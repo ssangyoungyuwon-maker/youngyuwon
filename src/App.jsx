@@ -4,6 +4,7 @@ import Reveal from "./components/Reveal";
 import SectionHeading from "./components/SectionHeading";
 import SkillIcon from "./components/SkillIcon";
 import { portfolio } from "./data/portfolio";
+import profilePhoto from "./assets/profile-photo.jpg";
 
 const shell = "mx-auto w-full max-w-[1384px] px-5 md:px-10 xl:px-[4.5rem]";
 const sectionPadding = "py-24 md:py-36 xl:py-40";
@@ -166,7 +167,7 @@ function About() {
   return (
     <section id="about" className={`${shell} ${sectionPadding}`}>
       <SectionHeading index="01">ABOUT ME</SectionHeading>
-      <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
+      <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.48fr_0.95fr] lg:gap-16 xl:gap-20">
         <Reveal>
           <h2 className="font-korean text-[clamp(2.4rem,3.8vw,3.6rem)] leading-[1.25] font-semibold tracking-[-0.07em]">
             <span className="block">근거로 판단하고</span>
@@ -175,10 +176,41 @@ function About() {
             </span>
           </h2>
         </Reveal>
-        <Reveal delay={100}>
+
+        <Reveal delay={80} className="mx-auto w-full max-w-[230px]">
+          <div className="relative">
+            <div className="absolute top-4 -right-4 h-full w-full rounded-[112px_112px_22px_22px] border border-accent/65" />
+            <figure className="relative z-10 aspect-[0.76] overflow-hidden rounded-[112px_112px_22px_22px] border border-line bg-surface shadow-[0_24px_55px_rgba(24,32,28,0.13)]">
+              <img
+                src={profilePhoto}
+                alt="서유원 프로필 사진"
+                className="h-full w-full object-cover object-top saturate-[0.84] contrast-[0.98]"
+              />
+            </figure>
+            <span className="absolute -right-8 bottom-7 z-20 rounded-full border border-line bg-bg px-3 py-2 font-serif text-xs italic shadow-lg">
+              Seo Yuwon
+            </span>
+          </div>
+        </Reveal>
+
+        <Reveal delay={140}>
           <p className="font-korean text-[16px] leading-8 text-muted break-keep md:text-[17px]">
             {portfolio.about}
           </p>
+          <div className="mt-8 grid grid-cols-2 gap-5 border-t border-line pt-6">
+            <div>
+              <span className="text-[9px] font-semibold tracking-[0.13em] text-accent">
+                ROLE
+              </span>
+              <p className="mt-2 text-xs">{portfolio.role}</p>
+            </div>
+            <div>
+              <span className="text-[9px] font-semibold tracking-[0.13em] text-accent">
+                LOCATION
+              </span>
+              <p className="mt-2 text-xs">{portfolio.location}</p>
+            </div>
+          </div>
         </Reveal>
       </div>
 
