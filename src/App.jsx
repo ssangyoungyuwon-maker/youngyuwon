@@ -307,11 +307,7 @@ function Journey() {
 function ProjectCard({ project, index }) {
   return (
     <Reveal>
-      <a
-        href={githubUrl}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`${project.name} 프로젝트 보기`}
+      <article
         className="group grid min-h-44 grid-cols-[36px_1fr_36px] items-center gap-3 border-b border-line py-7 transition hover:bg-ink/[0.035] md:grid-cols-[60px_1fr_minmax(260px,0.8fr)_44px] md:gap-8 md:hover:px-5 dark:border-white/15 dark:hover:bg-white/[0.04]"
       >
         <span className="self-start pt-1 text-xs text-accent">
@@ -345,11 +341,27 @@ function ProjectCard({ project, index }) {
               </span>
             ))}
           </div>
+          {project.document && (
+            <a
+              href={project.document}
+              target="_blank"
+              rel="noreferrer"
+              className="font-korean mt-5 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-[11px] font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              PDF 포트폴리오 보기 <Arrow />
+            </a>
+          )}
         </div>
-        <span className="col-start-3 row-span-2 row-start-1 grid size-9 place-items-center self-center rounded-full border border-line transition group-hover:rotate-45 group-hover:bg-accent group-hover:text-white md:col-start-4 md:size-11 dark:border-white/25">
+        <a
+          href={githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${project.name} GitHub 보기`}
+          className="col-start-3 row-span-2 row-start-1 grid size-9 place-items-center self-center rounded-full border border-line transition hover:rotate-45 hover:bg-accent hover:text-white md:col-start-4 md:size-11 dark:border-white/25"
+        >
           <Arrow />
-        </span>
-      </a>
+        </a>
+      </article>
     </Reveal>
   );
 }

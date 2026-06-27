@@ -1,3 +1,5 @@
+import tripanPortfolio from "../assets/tripan-portfolio.pdf";
+
 export const portfolio = {
   name: "서유원",
   role: "Backend Developer",
@@ -60,6 +62,7 @@ export const portfolio = {
       role: "Deputy Lead · Full Stack",
       result: "운영 예외를 반영한 숙소 신청 데이터 구조 개선",
       tags: ["Java", "Spring Boot", "MyBatis", "Oracle", "WebSocket"],
+      document: tripanPortfolio,
     },
     {
       name: "Maknaez",
