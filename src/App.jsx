@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Reveal from "./components/Reveal";
 import SectionHeading from "./components/SectionHeading";
+import SkillIcon from "./components/SkillIcon";
 import { portfolio } from "./data/portfolio";
 
 const shell = "mx-auto w-full max-w-[1384px] px-5 md:px-10 xl:px-[4.5rem]";
@@ -184,8 +185,9 @@ function About() {
             {portfolio.skills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-line px-4 py-2.5 text-xs"
+                className="group inline-flex items-center gap-2 rounded-full border border-line py-2 pr-4 pl-2 text-xs transition hover:-translate-y-0.5 hover:border-accent/50 hover:bg-surface"
               >
+                <SkillIcon name={skill} />
                 {skill}
               </span>
             ))}
