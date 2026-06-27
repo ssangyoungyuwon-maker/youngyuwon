@@ -12,20 +12,35 @@ export const portfolio = {
   availability:
     "도메인을 빠르게 이해하고 운영까지 책임지는 Java 백엔드 개발자로 성장할 기회를 찾고 있습니다.",
   location: "Seoul, Korea",
-  skills: [
-    "Java 21",
-    "Spring Boot",
-    "Spring Security",
-    "REST API",
-    "MyBatis",
-    "Oracle DB",
-    "Redis · Redisson",
-    "WebSocket · STOMP",
-    "TypeScript",
-    "Next.js · React",
-    "Docker · Kubernetes",
-    "GitHub Actions",
-    "k6",
+  skillGroups: [
+    {
+      title: "Backend",
+      description: "서버 로직과 API 설계",
+      featured: true,
+      skills: [
+        "Java 21",
+        "Spring Boot",
+        "Spring Security",
+        "REST API",
+        "MyBatis",
+        "WebSocket · STOMP",
+      ],
+    },
+    {
+      title: "Database & Cache",
+      description: "데이터 정합성과 동시성 제어",
+      skills: ["Oracle DB", "Redis · Redisson"],
+    },
+    {
+      title: "Frontend",
+      description: "사용자 흐름을 완성하는 화면",
+      skills: ["TypeScript", "Next.js · React"],
+    },
+    {
+      title: "DevOps & Testing",
+      description: "배포 자동화와 성능 검증",
+      skills: ["Docker · Kubernetes", "GitHub Actions", "k6"],
+    },
   ],
   projects: [
     {

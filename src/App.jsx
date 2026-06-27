@@ -179,18 +179,54 @@ function About() {
           <p className="font-korean text-[16px] leading-8 text-muted break-keep md:text-[17px]">
             {portfolio.about}
           </p>
-          <div className="mt-10 flex flex-wrap gap-2.5">
-            {portfolio.skills.map((skill) => (
-              <span
-                key={skill}
-                className="group inline-flex items-center gap-2 rounded-full border border-line py-2 pr-4 pl-2 text-xs transition hover:-translate-y-0.5 hover:border-accent/50 hover:bg-surface"
-              >
-                <SkillIcon name={skill} />
-                {skill}
-              </span>
-            ))}
-          </div>
         </Reveal>
+      </div>
+
+      <div className="mt-16 grid grid-cols-1 gap-3 md:grid-cols-12">
+        {portfolio.skillGroups.map((group, index) => (
+          <Reveal
+            key={group.title}
+            delay={index * 70}
+            className={
+              index === 0 || index === 3
+                ? "md:col-span-7"
+                : "md:col-span-5"
+            }
+          >
+            <article
+              className={`h-full min-h-52 rounded-2xl border p-6 transition duration-300 hover:-translate-y-1 md:p-7 ${
+                group.featured
+                  ? "border-accent/45 bg-accent/[0.045] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                  : "border-line bg-surface/45 hover:border-accent/30"
+              }`}
+            >
+              <div className="mb-8 flex items-start justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-semibold tracking-[0.14em] text-accent uppercase">
+                    {group.featured ? "Core" : `0${index + 1}`}
+                  </span>
+                  <h3 className="mt-2 text-xl font-medium tracking-[-0.04em]">
+                    {group.title}
+                  </h3>
+                </div>
+                <p className="font-korean max-w-44 text-right text-[11px] leading-5 text-muted break-keep">
+                  {group.description}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="group inline-flex items-center gap-2 rounded-full border border-line bg-bg/65 py-2 pr-4 pl-2 text-xs transition hover:-translate-y-0.5 hover:border-accent/50 hover:bg-bg"
+                  >
+                    <SkillIcon name={skill} />
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
 
       <div className="mt-24 grid border-t border-line md:mt-32 md:grid-cols-3">
