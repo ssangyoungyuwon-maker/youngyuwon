@@ -58,30 +58,90 @@ function Hero() {
 
         <Reveal
           delay={120}
-          className="relative mx-auto grid min-h-[380px] w-full max-w-[500px] place-items-center md:min-h-[490px]"
+          className="relative mx-auto grid min-h-[430px] w-full max-w-[520px] place-items-center md:min-h-[520px]"
         >
-          <div className="orbit orbit-outer" />
-          <div className="orbit orbit-inner" />
-          <div className="visual-card">
-            <span className="text-[10px] tracking-[0.18em] text-[#b9c5bd]">
-              CURRENTLY
-            </span>
-            <strong className="mt-14 text-[clamp(1.8rem,3vw,2.4rem)] leading-[1.05] font-medium tracking-[-0.06em]">
-              Building
-              <br />
-              reliable
-              <br />
-              systems.
-            </strong>
-            <span className="absolute right-5 bottom-1 z-10 font-serif text-8xl text-accent italic">
-              Y
-            </span>
+          <div className="system-panel">
+            <div className="flex h-12 items-center justify-between border-b border-white/10 px-4">
+              <div className="flex items-center gap-1.5" aria-hidden="true">
+                <span className="size-2 rounded-full bg-[#ff745c]" />
+                <span className="size-2 rounded-full bg-[#ffbd44]" />
+                <span className="size-2 rounded-full bg-[#00ca4e]" />
+              </div>
+              <span className="font-mono text-[9px] tracking-[0.14em] text-[#8d9b92]">
+                SYSTEM.FLOW
+              </span>
+              <span className="flex items-center gap-1.5 font-mono text-[9px] text-[#91c7a5]">
+                <i className="live-dot size-1.5 rounded-full bg-[#5bd188]" />
+                LIVE
+              </span>
+            </div>
+
+            <div className="system-canvas">
+              <div className="request-chip">
+                <span className="text-[#f0a88f]">POST</span>
+                <span>/api/reservations</span>
+              </div>
+
+              <div className="flow-connector">
+                <i />
+              </div>
+
+              <div className="api-node">
+                <div>
+                  <span className="font-mono text-[9px] tracking-[0.12em] text-[#f0a88f]">
+                    JAVA · SERVICE
+                  </span>
+                  <strong className="mt-1 block text-[17px] font-medium text-white">
+                    Spring Boot API
+                  </strong>
+                </div>
+                <span className="rounded-full border border-[#5bd188]/30 bg-[#5bd188]/10 px-2 py-1 font-mono text-[8px] text-[#7ee3a3]">
+                  HEALTHY
+                </span>
+              </div>
+
+              <div className="branch-connector" aria-hidden="true" />
+
+              <div className="system-branches">
+                <div className="infra-node">
+                  <div className="flex items-start justify-between">
+                    <span className="font-mono text-[9px] text-[#98a69d]">
+                      CACHE · LOCK
+                    </span>
+                    <span className="size-1.5 rounded-full bg-[#f0a88f]" />
+                  </div>
+                  <strong>Redis</strong>
+                  <span>Redisson distributed lock</span>
+                </div>
+                <div className="infra-node">
+                  <div className="flex items-start justify-between">
+                    <span className="font-mono text-[9px] text-[#98a69d]">
+                      DATABASE
+                    </span>
+                    <span className="size-1.5 rounded-full bg-[#5bd188]" />
+                  </div>
+                  <strong>Oracle DB</strong>
+                  <span>transaction committed</span>
+                </div>
+              </div>
+
+              <div className="response-line" aria-hidden="true">
+                <i />
+              </div>
+
+              <div className="response-chip">
+                <span className="font-mono text-[#7ee3a3]">201 CREATED</span>
+                <span className="text-[#77847c]">84 ms</span>
+              </div>
+            </div>
+
+            <div className="flex h-10 items-center justify-between border-t border-white/10 px-4 font-mono text-[8px] text-[#66736b]">
+              <span>request_id: yu-won-01</span>
+              <span>no overbooking · 200 VU</span>
+            </div>
           </div>
-          <span className="floating-note top-[20%] left-0 -rotate-6">
-            Domain-driven
-          </span>
-          <span className="floating-note right-0 bottom-[20%] rotate-6">
-            Reliable
+          <span className="absolute -right-3 bottom-10 rounded-full border border-line bg-bg px-4 py-2 font-serif text-xs italic shadow-xl md:-right-8">
+            reliability, visualized.
           </span>
         </Reveal>
       </section>
