@@ -141,9 +141,6 @@ function Hero() {
               <span>no overbooking · 200 VU</span>
             </div>
           </div>
-          <span className="absolute -right-3 bottom-10 rounded-full border border-line bg-bg px-4 py-2 font-serif text-xs italic shadow-xl md:-right-8">
-            reliability, visualized.
-          </span>
         </Reveal>
       </section>
 
@@ -169,12 +166,13 @@ function About() {
   return (
     <section id="about" className={`${shell} ${sectionPadding}`}>
       <SectionHeading index="01">ABOUT ME</SectionHeading>
-      <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
+      <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
         <Reveal>
-          <h2 className="font-korean text-[clamp(2.4rem,5vw,4.8rem)] leading-[1.2] font-semibold tracking-[-0.07em]">
-            근거로 판단하고
-            <br />
-            <em>안정적으로</em> 만듭니다.
+          <h2 className="font-korean text-[clamp(2.4rem,3.8vw,3.6rem)] leading-[1.25] font-semibold tracking-[-0.07em]">
+            <span className="block">근거로 판단하고</span>
+            <span className="block whitespace-nowrap">
+              <em>안정적으로</em> 만듭니다.
+            </span>
           </h2>
         </Reveal>
         <Reveal delay={100}>
