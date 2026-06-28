@@ -57,10 +57,14 @@ export const portfolio = {
     {
       name: "Tripan",
       description:
-        "여행 일정·숙소 예약·커뮤니티를 결합한 플랫폼입니다. B2B 파트너의 입점부터 객실·예약·리뷰·정산까지 이어지는 운영 흐름과 실시간 채팅을 구현했습니다.",
+        "Community와 Partner 영역을 전담해 여행 피드·동행 모집·팔로우·신고 기능과, 파트너 입점부터 객실·예약·쿠폰·정산까지 이어지는 운영 흐름을 구현했습니다.",
       period: "2026.03 · 4주",
       role: "Deputy Lead · Full Stack",
-      result: "운영 예외를 반영한 숙소 신청 데이터 구조 개선",
+      results: [
+        "피드·댓글·팔로우·신고 및 Gemini 여행지 추천 구현",
+        "입점·객실·예약·쿠폰·리뷰·정산 파트너 운영 시스템 구축",
+        "예약 취소 시 결제·쿠폰·포인트 보상 흐름을 트랜잭션으로 처리",
+      ],
       tags: ["Java", "Spring Boot", "MyBatis", "Oracle", "WebSocket"],
       document: tripanPortfolio,
     },
