@@ -48,11 +48,15 @@ export const portfolio = {
     {
       name: "Univ-US",
       description:
-        "대학별 LMS·커뮤니티·공간 예약을 통합한 플랫폼입니다. 팀장으로 개발 기준을 조율하고, Redis 분산 락과 STOMP를 활용한 실시간 예약 시스템을 구현했습니다.",
+        "대학별 LMS·커뮤니티·공간 예약을 통합한 플랫폼입니다. 팀장으로 개발 기준을 조율하고, 좌석·회의실 예약의 동시성 제어부터 실시간 상태 동기화, 입실·연장·노쇼 패널티까지 예약 도메인을 풀스택으로 구현했습니다.",
       period: "2026.06 — 진행 중",
       role: "Team Lead · Full Stack",
-      result: "200 VU 동시 요청에서 초과 예약 0건",
-      tags: ["Java 21", "Spring Boot", "Redis", "Next.js", "Kubernetes"],
+      results: [
+        "k6 200 VU 동시 요청에서 초과 예약 0건",
+        "Redisson 다중 락과 트랜잭션 경계 개선으로 중복 예약 방지",
+        "STOMP 실시간 동기화와 입실·연장·노쇼 패널티 생명주기 구현",
+      ],
+      tags: ["Java 21", "Spring Boot", "Redisson", "STOMP", "Next.js", "Oracle"],
     },
     {
       name: "Tripan",
