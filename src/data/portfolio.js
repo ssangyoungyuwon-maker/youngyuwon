@@ -1,4 +1,5 @@
 import tripanPortfolio from "../assets/tripan-portfolio.pdf";
+import maknaezPortfolio from "../assets/maknaez-portfolio.pdf";
 
 export const portfolio = {
   name: "서유원",
@@ -84,6 +85,7 @@ export const portfolio = {
         "재고 연동 및 재입고 신청자 대상 HTML 이메일 자동 발송",
       ],
       tags: ["Java", "Servlet/JSP", "MyBatis", "Oracle", "AJAX"],
+      document: maknaezPortfolio,
     },
   ],
   experiences: [
