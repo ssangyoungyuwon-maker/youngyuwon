@@ -50,7 +50,7 @@ export const portfolio = {
       name: "Univ-US",
       description:
         "대학별 LMS·커뮤니티·공간 예약을 통합한 플랫폼입니다. 팀장으로 개발 기준을 조율하고, 좌석·회의실 예약의 동시성 제어부터 실시간 상태 동기화, 입실·연장·노쇼 패널티까지 예약 도메인을 풀스택으로 구현했습니다.",
-      period: "2026.06 — 진행 중",
+      period: "2026.05 — 2026.07",
       role: "Team Lead · Full Stack",
       results: [
         "k6 200 VU 동시 요청에서 초과 예약 0건",
@@ -90,11 +90,11 @@ export const portfolio = {
   ],
   experiences: [
     {
-      period: "2026.05 — 현재",
+      period: "2026.05 — 2026.07",
       title: "기업 맞춤형 Java 웹 개발자 과정",
       organization: "한국IT전문가협회",
       description:
-        "Java 웹 개발 역량을 고도화하며 Univ-US 프로젝트를 팀장으로 진행하고 있습니다.",
+        "Java 웹 개발 역량을 고도화하며 Univ-US 프로젝트를 팀장으로 완료했습니다.",
       type: "Training",
     },
     {
