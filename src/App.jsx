@@ -145,7 +145,7 @@ function Hero() {
         </Reveal>
       </section>
 
-      <div className="overflow-hidden border-y border-line py-4">
+      <div className="marquee-shell overflow-hidden border-y border-line py-4">
         <div className="marquee-track flex w-max items-center gap-9 text-[11px] tracking-[0.17em] text-muted">
           {[0, 1].map((group) => (
             <div key={group} className="flex items-center gap-9">

@@ -266,8 +266,26 @@ em {
   animation: live-pulse 1.6s ease-out infinite;
 }
 
+.marquee-shell {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 9%,
+    #000 91%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 9%,
+    #000 91%,
+    transparent 100%
+  );
+}
+
 .marquee-track {
-  animation: marquee 28s linear infinite;
+  animation: marquee 30s linear infinite;
+  padding-left: 2.75rem;
 }
 
 .marquee-track i {
