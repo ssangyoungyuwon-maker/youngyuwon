@@ -270,22 +270,23 @@ em {
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0,
-    #000 9%,
-    #000 91%,
+    #000 4%,
+    #000 96%,
     transparent 100%
   );
   mask-image: linear-gradient(
     90deg,
     transparent 0,
-    #000 9%,
-    #000 91%,
+    #000 4%,
+    #000 96%,
     transparent 100%
   );
 }
 
 .marquee-track {
-  animation: marquee 30s linear infinite;
-  padding-left: 2.75rem;
+  --marquee-anchor: 58vw;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
 }
 
 .marquee-track i {
@@ -334,8 +335,12 @@ em {
 }
 
 @keyframes marquee {
+  from {
+    transform: translate3d(calc(-33.333333% + var(--marquee-anchor)), 0, 0);
+  }
+
   to {
-    transform: translateX(-50%);
+    transform: translate3d(calc(-66.666667% + var(--marquee-anchor)), 0, 0);
   }
 }
 

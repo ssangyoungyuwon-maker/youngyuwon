@@ -146,9 +146,9 @@ function Hero() {
       </section>
 
       <div className="marquee-shell overflow-hidden border-y border-line py-4">
-        <div className="marquee-track flex w-max items-center gap-9 text-[11px] tracking-[0.17em] text-muted">
-          {[0, 1].map((group) => (
-            <div key={group} className="flex items-center gap-9">
+        <div className="marquee-track flex w-max items-center text-[11px] tracking-[0.17em] text-muted">
+          {[0, 1, 2].map((group) => (
+            <div key={group} className="flex items-center gap-9 pr-9" aria-hidden={group !== 1}>
               <span>BACKEND DEVELOPMENT</span>
               <i>✦</i>
               <span>DATA INTEGRITY</span>
