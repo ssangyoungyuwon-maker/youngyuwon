@@ -1,5 +1,6 @@
 import tripanPortfolio from "../assets/tripan-portfolio.pdf";
 import maknaezPortfolio from "../assets/maknaez-portfolio.pdf";
+import univUsTeamPresentation from "../assets/univ-us-team-final-presentation.pdf";
 
 export const portfolio = {
   name: "서유원",
@@ -58,6 +59,8 @@ export const portfolio = {
         "STOMP 실시간 동기화와 입실·연장·노쇼 패널티 생명주기 구현",
       ],
       tags: ["Java 21", "Spring Boot", "Redisson", "STOMP", "Next.js", "Oracle"],
+      document: univUsTeamPresentation,
+      documentLabel: "팀 최종 발표자료 보기",
     },
     {
       name: "Tripan",

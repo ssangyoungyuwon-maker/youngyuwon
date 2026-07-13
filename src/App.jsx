@@ -387,7 +387,7 @@ function ProjectCard({ project, index }) {
               rel="noreferrer"
               className="font-korean mt-5 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-[11px] font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg"
             >
-              PDF 포트폴리오 보기 <Arrow />
+              {project.documentLabel ?? "PDF 포트폴리오 보기"} <Arrow />
             </a>
           )}
         </div>
