@@ -33,7 +33,7 @@ export const portfolio = {
     {
       title: "Database & Cache",
       description: "데이터 정합성과 동시성 제어",
-      skills: ["Oracle DB", "Redis · Redisson"],
+      skills: ["PostgreSQL · Flyway", "Oracle DB", "Redis · Redisson"],
     },
     {
       title: "Frontend",
@@ -43,10 +43,26 @@ export const portfolio = {
     {
       title: "DevOps & Testing",
       description: "배포 자동화와 성능 검증",
-      skills: ["Docker · Kubernetes", "GitHub Actions", "k6"],
+      skills: ["Docker · Kubernetes", "GitHub Actions · OCI", "k6"],
     },
   ],
   projects: [
+    {
+      name: "TRI:READ",
+      description:
+        "이동 시간에도 부담 없이 풀 수 있는 고3 비문학 학습 서비스를 혼자 기획·설계·개발·배포하고 있습니다. Gemini 문제 생성에 그치지 않고, 생성 품질과 실제 사용자 풀이 품질을 분리해 관찰할 수 있는 운영 구조까지 구현했습니다.",
+      period: "2026.07 — 진행 중",
+      role: "Solo Project · Full Stack",
+      results: [
+        "향후 7일 퀴즈 재고·Gemini 호출량·생성 실패·DB 백업 상태를 운영 화면에 통합",
+        "정답률과 오답 쏠림을 집계해 검토 필요·데이터 부족·정상 문항을 자동 분류",
+        "OCI 배포와 GitHub Actions 자동 승격·운영 스모크 테스트 구성",
+      ],
+      tags: ["Java 21", "Spring Boot", "PostgreSQL", "Gemini API", "Next.js", "GitHub Actions"],
+      githubUrl: "https://github.com/TRI-READ",
+      liveUrl: "https://tri-read.duckdns.org",
+      liveLabel: "운영 서비스 보기",
+    },
     {
       name: "Univ-US",
       description:
@@ -61,6 +77,7 @@ export const portfolio = {
       tags: ["Java 21", "Spring Boot", "Redisson", "STOMP", "Next.js", "Oracle"],
       document: univUsTeamPresentation,
       documentLabel: "팀 최종 발표자료 보기",
+      githubUrl: "https://github.com/Univ-US",
     },
     {
       name: "Tripan",
@@ -75,6 +92,7 @@ export const portfolio = {
       ],
       tags: ["Java", "Spring Boot", "MyBatis", "Oracle", "WebSocket"],
       document: tripanPortfolio,
+      githubUrl: "https://github.com/eojin42/tripan",
     },
     {
       name: "Maknaez",
@@ -89,6 +107,7 @@ export const portfolio = {
       ],
       tags: ["Java", "Servlet/JSP", "MyBatis", "Oracle", "AJAX"],
       document: maknaezPortfolio,
+      githubUrl: "https://github.com/nowk01/maknaez",
     },
   ],
   experiences: [

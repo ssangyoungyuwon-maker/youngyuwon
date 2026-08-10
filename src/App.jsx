@@ -380,19 +380,33 @@ function ProjectCard({ project, index }) {
               </span>
             ))}
           </div>
-          {project.document && (
-            <a
-              href={project.document}
-              target="_blank"
-              rel="noreferrer"
-              className="font-korean mt-5 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-[11px] font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              {project.documentLabel ?? "PDF 포트폴리오 보기"} <Arrow />
-            </a>
+          {(project.liveUrl || project.document) && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-korean inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-[11px] font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  {project.liveLabel ?? "운영 서비스 보기"} <Arrow />
+                </a>
+              )}
+              {project.document && (
+                <a
+                  href={project.document}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-korean inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-[11px] font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  {project.documentLabel ?? "PDF 포트폴리오 보기"} <Arrow />
+                </a>
+              )}
+            </div>
           )}
         </div>
         <a
-          href={githubUrl}
+          href={project.githubUrl ?? githubUrl}
           target="_blank"
           rel="noreferrer"
           aria-label={`${project.name} GitHub 보기`}
