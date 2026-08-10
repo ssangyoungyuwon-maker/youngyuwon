@@ -60,6 +60,7 @@ export const portfolio = {
       ],
       tags: ["Java 21", "Spring Boot", "PostgreSQL", "Gemini API", "Next.js", "GitHub Actions"],
       githubUrl: "https://github.com/TRI-READ",
+      githubLabel: "GitHub FE·BE 보기",
       liveUrl: "https://tri-read.duckdns.org",
       liveLabel: "운영 서비스 보기",
     },
@@ -78,6 +79,7 @@ export const portfolio = {
       document: univUsTeamPresentation,
       documentLabel: "팀 최종 발표자료 보기",
       githubUrl: "https://github.com/Univ-US",
+      githubLabel: "GitHub FE·BE 보기",
     },
     {
       name: "Tripan",

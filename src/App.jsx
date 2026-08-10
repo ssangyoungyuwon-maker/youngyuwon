@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaGithub } from "react-icons/fa";
 import Header from "./components/Header";
 import Reveal from "./components/Reveal";
 import SectionHeading from "./components/SectionHeading";
@@ -340,7 +341,7 @@ function ProjectCard({ project, index }) {
   return (
     <Reveal>
       <article
-        className="group grid min-h-44 grid-cols-[36px_1fr_36px] items-center gap-3 border-b border-line py-7 transition hover:bg-ink/[0.035] md:grid-cols-[60px_1fr_minmax(260px,0.8fr)_44px] md:gap-8 md:hover:px-5 dark:border-white/15 dark:hover:bg-white/[0.04]"
+        className="group grid min-h-44 grid-cols-[36px_1fr] items-center gap-3 border-b border-line py-7 transition hover:bg-ink/[0.035] md:grid-cols-[60px_1fr_minmax(260px,0.8fr)] md:gap-8 md:hover:px-5 dark:border-white/15 dark:hover:bg-white/[0.04]"
       >
         <span className="self-start pt-1 text-xs text-accent">
           0{index + 1}
@@ -380,7 +381,7 @@ function ProjectCard({ project, index }) {
               </span>
             ))}
           </div>
-          {(project.liveUrl || project.document) && (
+          {(project.liveUrl || project.document || project.githubUrl) && (
             <div className="mt-5 flex flex-wrap gap-2">
               {project.liveUrl && (
                 <a
@@ -402,18 +403,19 @@ function ProjectCard({ project, index }) {
                   {project.documentLabel ?? "PDF 포트폴리오 보기"} <Arrow />
                 </a>
               )}
+              <a
+                href={project.githubUrl ?? githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${project.name} ${project.githubLabel ?? "GitHub 저장소 보기"}`}
+                className="font-korean inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-[11px] font-semibold transition hover:-translate-y-0.5 hover:border-ink hover:bg-ink hover:text-bg dark:border-white/25 dark:hover:border-white dark:hover:bg-white dark:hover:text-deep"
+              >
+                <FaGithub aria-hidden="true" className="text-sm" />
+                {project.githubLabel ?? "GitHub 저장소 보기"} <Arrow />
+              </a>
             </div>
           )}
         </div>
-        <a
-          href={project.githubUrl ?? githubUrl}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${project.name} GitHub 보기`}
-          className="col-start-3 row-span-2 row-start-1 grid size-9 place-items-center self-center rounded-full border border-line transition hover:rotate-45 hover:bg-accent hover:text-white md:col-start-4 md:size-11 dark:border-white/25"
-        >
-          <Arrow />
-        </a>
       </article>
     </Reveal>
   );
