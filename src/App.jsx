@@ -420,6 +420,16 @@ function ProjectCard({ project, index }) {
 }
 
 function Projects() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const initiallyVisibleCount = 3;
+  const hiddenProjectCount = Math.max(
+    portfolio.projects.length - initiallyVisibleCount,
+    0,
+  );
+  const visibleProjects = showAllProjects
+    ? portfolio.projects
+    : portfolio.projects.slice(0, initiallyVisibleCount);
+
   return (
     <section
       id="projects"
@@ -437,20 +447,39 @@ function Projects() {
             역할과 구현보다, 어떤 문제를 어떻게 검증했는지에 집중했습니다.
           </p>
         </Reveal>
-        <div className="border-t border-line dark:border-white/15">
-          {portfolio.projects.map((project, index) => (
+        <div
+          id="project-list"
+          className="border-t border-line dark:border-white/15"
+        >
+          {visibleProjects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
         <Reveal>
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="font-korean mt-10 inline-flex gap-3 border-b border-line pb-1 text-xs dark:border-white/25"
-          >
-            GitHub에서 모든 프로젝트 보기 <Arrow />
-          </a>
+          <div className="mt-10 flex flex-wrap items-center gap-6">
+            {hiddenProjectCount > 0 && (
+              <button
+                type="button"
+                aria-expanded={showAllProjects}
+                aria-controls="project-list"
+                onClick={() => setShowAllProjects((current) => !current)}
+                className="font-korean inline-flex min-h-11 items-center justify-center gap-3 rounded-full border border-line px-5 text-xs font-semibold transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent hover:text-white dark:border-white/25"
+              >
+                {showAllProjects
+                  ? "프로젝트 접기"
+                  : `프로젝트 더보기 +${hiddenProjectCount}`}
+                <span aria-hidden="true">{showAllProjects ? "↑" : "↓"}</span>
+              </button>
+            )}
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="font-korean inline-flex gap-3 border-b border-line pb-1 text-xs dark:border-white/25"
+            >
+              GitHub에서 모든 프로젝트 보기 <Arrow />
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>
