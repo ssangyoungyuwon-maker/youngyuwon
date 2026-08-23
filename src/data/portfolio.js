@@ -27,38 +27,65 @@ export const portfolio = {
         "Spring Security",
         "REST API",
         "MyBatis",
+        "JSP · Servlet",
         "WebSocket · STOMP",
       ],
     },
     {
       title: "Database & Cache",
       description: "데이터 정합성과 동시성 제어",
-      skills: ["PostgreSQL · Flyway", "Oracle DB", "Redis · Redisson"],
+      skills: [
+        "PostgreSQL · Flyway",
+        "Oracle DB",
+        "MySQL",
+        "Redis · Redisson",
+      ],
     },
     {
       title: "Frontend",
       description: "사용자 흐름을 완성하는 화면",
-      skills: ["TypeScript", "Next.js · React"],
+      skills: [
+        "JavaScript · TypeScript",
+        "Next.js · React",
+        "HTML5 · CSS3",
+        "jQuery · Vue.js",
+        "Zustand · Axios",
+      ],
     },
     {
       title: "DevOps & Testing",
-      description: "배포 자동화와 성능 검증",
-      skills: ["Docker · Kubernetes", "GitHub Actions · OCI", "k6"],
+      description: "자동 배포와 회귀·동시성 검증",
+      skills: [
+        "Docker Compose · Kubernetes",
+        "GitHub Actions · OCI",
+        "JUnit 5 · Testcontainers",
+        "Playwright",
+        "k6",
+      ],
     },
   ],
   projects: [
     {
       name: "TRI:READ",
       description:
-        "이동 시간에도 부담 없이 풀 수 있는 고3 비문학 학습 서비스를 혼자 기획·설계·개발·배포하고 있습니다. Gemini 문제 생성에 그치지 않고, 생성 품질과 실제 사용자 풀이 품질을 분리해 관찰할 수 있는 운영 구조까지 구현했습니다.",
-      period: "2026.07 — 진행 중",
-      role: "Solo Project · Full Stack",
+        "이동 시간에도 부담 없이 풀 수 있는 고3 비문학 학습 서비스를 혼자 기획·설계·개발·배포·운영하고 있습니다. 콘텐츠 풀 기반 학습 흐름과 Gemini 생성 결과의 출처·규칙·중복 검증, 실제 풀이 품질 분석과 관리자 운영 화면까지 구현했습니다.",
+      period: "2026.07.05 — 진행 중",
+      role: "Solo Project · Full Stack · Operations",
       results: [
-        "향후 7일 퀴즈 재고·Gemini 호출량·생성 실패·DB 백업 상태를 운영 화면에 통합",
-        "정답률과 오답 쏠림을 집계해 검토 필요·데이터 부족·정상 문항을 자동 분류",
-        "OCI 배포와 GitHub Actions 자동 승격·운영 스모크 테스트 구성",
+        "콘텐츠 풀 기반 미열람 세트 배정·미시작 세트 이월·보너스 서재 구현",
+        "규칙·중복 검증, 실패 지문 부분 재생성과 실제 풀이 기반 문항 품질 분석",
+        "Gemini 호출량·생성 실패·DB 백업 관리와 GitHub Actions 기반 OCI 자동 배포",
       ],
-      tags: ["Java 21", "Spring Boot", "PostgreSQL", "Gemini API", "Next.js", "GitHub Actions"],
+      tags: [
+        "Java 21",
+        "Spring Boot",
+        "Spring Security",
+        "PostgreSQL",
+        "Gemini API",
+        "Next.js",
+        "Docker Compose",
+        "GitHub Actions · OCI",
+      ],
       githubUrl: "https://github.com/TRI-READ",
       githubLabel: "GitHub FE·BE 보기",
       liveUrl: "https://tri-read.duckdns.org",
@@ -68,7 +95,7 @@ export const portfolio = {
       name: "Univ-US",
       description:
         "대학별 LMS·커뮤니티·공간 예약을 통합한 플랫폼입니다. 팀장으로 개발 기준을 조율하고, 좌석·회의실 예약의 동시성 제어부터 실시간 상태 동기화, 입실·연장·노쇼 패널티까지 예약 도메인을 풀스택으로 구현했습니다.",
-      period: "2026.05 — 2026.07",
+      period: "2026.06.09 — 2026.07.16",
       role: "Team Lead · Full Stack",
       results: [
         "k6 200 VU 동시 요청에서 초과 예약 0건",
@@ -85,7 +112,7 @@ export const portfolio = {
       name: "Tripan",
       description:
         "Community와 Partner 영역을 전담해 여행 피드·동행 모집·팔로우·신고 기능과, 파트너 입점부터 객실·예약·쿠폰·정산까지 이어지는 운영 흐름을 구현했습니다.",
-      period: "2026.03 · 4주",
+      period: "2026.03.03 — 2026.03.30",
       role: "Deputy Lead · Full Stack",
       results: [
         "피드·댓글·팔로우·신고 및 Gemini 여행지 추천 구현",
@@ -100,7 +127,7 @@ export const portfolio = {
       name: "Maknaez",
       description:
         "상품 탐색·다중 필터부터 옵션별 장바구니, 주문·배송 정보 생성까지 구현한 신발 쇼핑몰입니다. PG 결제는 모의 구현하고, 장바구니 구매와 즉시 구매를 하나의 주문 흐름으로 통합했습니다.",
-      period: "2026.01 · 3주",
+      period: "2026.01.05 — 2026.01.22",
       role: "Full Stack",
       results: [
         "다중 조건 상품 필터와 가격·최신순 정렬 구현",
@@ -114,16 +141,24 @@ export const portfolio = {
   ],
   experiences: [
     {
-      period: "2026.05 — 2026.07",
-      title: "기업 맞춤형 Java 웹 개발자 과정",
+      period: "2026.07 — 재직 중",
+      title: "ServiceNow 플랫폼 업무",
+      organization: "이콜트리 · ServiceNow팀",
+      description:
+        "ServiceNow 플랫폼 업무를 수행하며 기존 시스템의 구조와 데이터 흐름을 파악하고 있습니다.",
+      type: "Experience",
+    },
+    {
+      period: "2026.05.04 — 2026.07.16",
+      title: "기업 맞춤형 자바(JAVA) 웹 개발자 양성 과정",
       organization: "한국IT전문가협회",
       description:
         "Java 웹 개발 역량을 고도화하며 Univ-US 프로젝트를 팀장으로 완료했습니다.",
       type: "Training",
     },
     {
-      period: "2025.09 — 2026.04",
-      title: "AWS & CI/CD 기반 Java Full-Stack 과정",
+      period: "2025.09.08 — 2026.04.08",
+      title: "AWS & CI/CD 기반 Java 클라우드 Full-Stack 과정",
       organization: "쌍용강북교육센터 · 1,120시간",
       description:
         "Java, Spring Boot, 데이터베이스, 프론트엔드와 배포 과정을 학습하고 세 번의 팀 프로젝트를 수행했습니다.",
